@@ -1,0 +1,10 @@
+@mixin clearfix {
+
+    // 为清除浮动而存在的元素
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+

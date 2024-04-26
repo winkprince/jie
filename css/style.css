@@ -1,0 +1,245 @@
+@charset "UTF-8";
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+    letter-spacing: -30rem; }
+  20% {
+    transform: translateX(0rem);
+    letter-spacing: 0rem;
+    opacity: 1; }
+  80% {
+    transform: translateX(-6rem);
+    letter-spacing: 6rem; }
+  100% {
+    transform: translate(0); } }
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-10rem);
+    opacity: 0;
+    letter-spacing: 10rem;
+    color: red; }
+  20% {
+    transform: translateX(0rem);
+    letter-spacing: -10rem; }
+  80% {
+    transform: translateX(6rem);
+    letter-spacing: 1rem; }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0; }
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes logoBig {
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5); }
+  100% {
+    opacity: 0;
+    transform: scale(2); } }
+
+* {
+  margin: 0;
+  /*外边距*/
+  padding: 0;
+  /*内边距*/
+  box-sizing: border-box;
+  /* 默认情况下，元素的宽度和高度只包括内容区域如果给元素设置了边框和内边距
+    ，实际上它占据的空间会比你设置的宽度和高度更大 设置了box-sizing: border-box;
+    元素的宽度和高度将会包括内容区域、边框和内边距。*/ }
+
+html {
+  font-size: 10px; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /*用于设置文本的粗细程度*/
+  font-size: 1.6rem;
+  line-height: 1.7;
+  /*设置文本的行高 1.7是一个无单位的倍数，意味着行高是字体大小的1.7倍。*/
+  color: rgba(238, 175, 175, 0.723);
+  padding: 1.2rem; }
+
+.heading-primary {
+  color: #fff;
+  backface-visibility: hidden;
+  /*隐藏这个元素*/
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    white-space: nowrap;
+    /* 不换行*/
+    display: block;
+    /*设置为块级元素 相当于一个div.*/
+    font-size: 4.5rem;
+    font-weight: 400;
+    /*设置文本的粗细*/
+    letter-spacing: 1.7rem;
+    /*设置字符间距*/
+    animation-name: moveInRight;
+    animation-duration: 2s; }
+  .heading-primary--sub {
+    white-space: nowrap;
+    /* 不换行*/
+    display: block;
+    font-size: 2.5rem;
+    color: #692c2c81;
+    font-weight: 700;
+    letter-spacing: 0.7rem;
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    /*设置为缓入*/ }
+
+.heading-secondary {
+  font-size: 3rem;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #ffcdcd, #f06d6d2c);
+  -webkit-background-clip: text;
+  letter-spacing: 3px;
+  color: transparent;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(5deg) skewX(5deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(248, 174, 186, 0.6); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
+.section-brief {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* 水平阴影的位置 垂直阴影的位置 阴影的模糊程度 颜色透明度*/ }
+  .btn:hover::after {
+    content: "";
+    transform: scaleX(1.2) scaleY(1.6);
+    /* 放大原本的n倍 */
+    opacity: 0; }
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0 3rem rgba(239, 96, 196, 0.801); }
+
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
+
+.btn::after {
+  /* 创建一个伪元素 在选定内容之后插入内容 */
+  content: "";
+  display: inline-block;
+  /*这意味着伪元素将像内联元素一样流动，但同时像块级元素一样可以设置宽度和高度。*/
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /*半径是100像素*/
+  position: absolute;
+  /* 相对于父元素的位置*/
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* 元素在页面的层级 只对定位元素有效(relative、absolute、fixed 或 sticky)*/
+  transition: all .4s; }
+
+.btn--animated {
+  animation: moveInBottom .5s ease-out .3s;
+  /*动画名 持续时间 淡出 延迟 */
+  animation-fill-mode: backwards;
+  /*将动画应用的时间提前*/ }
+
+.btn:link, .btn:visited {
+  /*选择用户已经访问过的链接*/
+  white-space: nowrap;
+  text-decoration: none;
+  /*移除文本的装饰，比如下划线、上划线、删除线等*/
+  padding: 1.5rem 3rem;
+  /*位置:top right bottom left  设置外边框的大小*/
+  display: inline-block;
+  border-radius: 10rem;
+  /* 圆角 */
+  transition: all .2s;
+  /* 动画过渡设置 all表示所有动画*/
+  position: relative;
+  /* 相对于本身文档流的位置*/ }
+
+.header {
+  height: 95vh;
+  /* vh是一个视口高度单位 (视口：也就是你实际看到网页内容的那部分屏幕区域。)*/
+  background-image: linear-gradient(to right bottom, rgba(255, 205, 205, 0.5), rgba(240, 109, 109, 0.5)), url(../img/第一张照片.jpg);
+  background-size: cover;
+  /* 将图片的大小适应窗口的大小，等比放大和缩小 */
+  background-position: left top;
+  /* 不管页面如何滑动 页面top/botton/center部不会被覆盖*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* 左下角 */
+  position: relative; }
+  .header__logo-box {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 6rem;
+    /* 距离顶部40px*/
+    left: 6rem;
+    /* 距离左边40px*/ }
+  .header__logo {
+    height: 7rem;
+    animation: logoBig .3s infinite; }
+  .header__text-box {
+    transform: translate(-50%, -50%);
+    /* 重新定位盒子的位置在哪里*/
+    position: absolute;
+    top: 40%;
+    /* 从盒子的顶部开始计算位置*/
+    left: 50%;
+    /* 从盒子的最右处开始计算位置*/
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 1 * 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc(2*((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-2-of-4 {
+    width: calc(2*((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }

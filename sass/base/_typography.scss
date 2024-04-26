@@ -1,0 +1,65 @@
+@import "sass/abstracts/variables";
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    /*用于设置文本的粗细程度*/
+    font-size: 1.6rem;
+    line-height: 1.7;
+    /*设置文本的行高 1.7是一个无单位的倍数，意味着行高是字体大小的1.7倍。*/
+    color: hsla(0, 65%, 81%, 0.723);
+    padding: 1.2rem;
+}
+
+.heading-primary {
+    color: $color-write;
+    backface-visibility: hidden;
+    /*隐藏这个元素*/
+    margin-bottom: 6rem;
+
+    &--main {
+        white-space: nowrap;
+        /* 不换行*/
+        display: block;
+        /*设置为块级元素 相当于一个div.*/
+        font-size: 4.5rem;
+        font-weight: 400;
+        /*设置文本的粗细*/
+        letter-spacing: 1.7rem;
+        /*设置字符间距*/
+        animation-name: moveInRight;
+        animation-duration: 2s;
+    }
+
+    &--sub {
+        white-space: nowrap;
+        /* 不换行*/
+        display: block;
+        font-size: 2.5rem;
+        color: #692c2c81;
+        font-weight: 700;
+        letter-spacing: 0.7rem;
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        /*设置为缓入*/
+    }
+}
+
+.heading-secondary {
+    font-size: 3rem;
+    font-weight: 700;
+    display: inline-block; //设置为行内块元素(不会超过文本宽度)
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;  // 使颜色作用于文本
+    letter-spacing: 3px;
+    color: transparent;
+
+    transition: all .2s;
+    &:hover {
+        transform: skewY(5deg) skewX(5deg) scale(1.1); // y轴倾斜2°
+        text-shadow: .5rem 1rem 2rem rgba(rgb(248, 174, 186), 0.6);
+    }
+}
+
+

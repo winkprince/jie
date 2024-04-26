@@ -1,0 +1,52 @@
+.header {
+    height: 95vh;
+    /* vh是一个视口高度单位 (视口：也就是你实际看到网页内容的那部分屏幕区域。)*/
+    background-image: linear-gradient(
+            /*linear-gradient线性渐变*/
+            to right bottom,
+            /*  to right bottom 从左上到右下 */
+            rgba($color-primary-light, 0.5), rgba($color-primary-dark, 0.5)),
+        url(../img/第一张照片.jpg);
+    background-size: cover;
+    /* 将图片的大小适应窗口的大小，等比放大和缩小 */
+    background-position: left top;
+    /* 不管页面如何滑动 页面top/botton/center部不会被覆盖*/
+    clip-path: polygon(
+            /* 想要的部分*/
+            0 0,
+            /* 左上角(起点)*/
+            100% 0,
+            /* 右上角 */
+            100% 75vh,
+            /* 右下角 */
+            0 100%);
+    /* 左下角 */
+    position: relative;
+
+    &__logo-box {
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 6rem;
+        /* 距离顶部40px*/
+        left: 6rem;
+        /* 距离左边40px*/
+    }
+
+    &__logo {
+        height: 7rem;
+        animation: logoBig .3s infinite;
+    }
+
+    &__text-box {
+        transform: translate(-50%, -50%);
+        /* 重新定位盒子的位置在哪里*/
+        position: absolute;
+        top: 40%;
+        /* 从盒子的顶部开始计算位置*/
+        left: 50%;
+        /* 从盒子的最右处开始计算位置*/
+        text-align: center;
+    }
+
+
+}

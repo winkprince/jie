@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    /*外边距*/
+    padding: 0;
+    /*内边距*/
+    box-sizing: border-box;
+    /* 默认情况下，元素的宽度和高度只包括内容区域如果给元素设置了边框和内边距
+    ，实际上它占据的空间会比你设置的宽度和高度更大 设置了box-sizing: border-box;
+    元素的宽度和高度将会包括内容区域、边框和内边距。*/
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    box-sizing: border-box;
+}

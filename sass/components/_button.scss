@@ -1,0 +1,72 @@
+.btn {
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        /* 水平阴影的位置 垂直阴影的位置 阴影的模糊程度 颜色透明度*/
+
+        &::after {
+            content: "";
+            transform: scaleX(1.2) scaleY(1.6);
+            /* 放大原本的n倍 */
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0 3rem rgba(239, 96, 196, 0.801);
+    }
+
+    &--white {
+        background-color: $color-write;
+        color: #777;
+
+        &::after {
+            background-color: $color-write;
+        }
+    }
+
+    &::after {
+        /* 创建一个伪元素 在选定内容之后插入内容 */
+        content: "";
+        display: inline-block;
+        /*这意味着伪元素将像内联元素一样流动，但同时像块级元素一样可以设置宽度和高度。*/
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        /*半径是100像素*/
+        position: absolute;
+        /* 相对于父元素的位置*/
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /* 元素在页面的层级 只对定位元素有效(relative、absolute、fixed 或 sticky)*/
+        transition: all .4s; 
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .3s;
+        /*动画名 持续时间 淡出 延迟 */
+        animation-fill-mode: backwards;
+        /*将动画应用的时间提前*/
+    }
+
+    &:link,
+    /* 选择所有未被访问的超链接*/
+    &:visited {
+        /*选择用户已经访问过的链接*/
+        white-space: nowrap;
+        text-decoration: none;
+        /*移除文本的装饰，比如下划线、上划线、删除线等*/
+        padding: 1.5rem 3rem;
+        /*位置:top right bottom left  设置外边框的大小*/
+        display: inline-block;
+        border-radius: 10rem;
+        /* 圆角 */
+        transition: all .2s;
+        /* 动画过渡设置 all表示所有动画*/
+        position: relative;
+        /* 相对于本身文档流的位置*/
+    }
+
+}
